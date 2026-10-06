@@ -12,13 +12,13 @@ Developed by the **SMART Research Team, Center for Life Cycle Engineering, Unive
 
 **nLCA Tool** is research software developed to support methodological implementation, comparison, and sensitivity analysis in **nutritional Life Cycle Assessment (nLCA)**.
 
-Nutritional Life Cycle Assessment extends conventional environmental Life Cycle Assessment by incorporating nutritional characteristics into the assessment of foods and food-related systems. nLCA Tool provides a structured computational environment for investigating how alternative approaches to nutritional characterization affect nutritional indices and nutrition-adjusted environmental results.
+Nutritional Life Cycle Assessment extends conventional environmental Life Cycle Assessment by incorporating nutritional characteristics into the assessment of foods and food-related systems. The nLCA Tool provides a structured computational environment for examining how alternative approaches to nutritional characterization affect nutritional indices and nutrition-adjusted environmental results.
 
 Version 1.1 focuses particularly on methodological choices related to:
 
 - nutrient-density assessment;
 - protein quantity and protein-quality characterization;
-- amino acid composition and digestibility;
+- amino acid composition and amino acid digestibility;
 - DIAAS-related protein-quality assessment;
 - nutrient bioavailability;
 - nutrient capping;
@@ -36,16 +36,16 @@ The overall structure of nLCA Tool Version 1.1 is illustrated below.
 
 ![Conceptual overview of nLCA Tool Version 1.1](figures/nlca_tool_v1.1_overview.png)
 
-**Figure 1. Conceptual workflow of nLCA Tool Version 1.1.**  
-The software links nutritional and environmental input data with alternative nutritional characterization approaches. Methodological assumptions concerning protein quality, nutrient bioavailability, capping, aggregation, and related calculation choices can be evaluated systematically before nutritional results are integrated with environmental indicators.
+**Figure 1. Conceptual overview of nLCA Tool Version 1.1.**  
+The tool links user-defined nutritional and environmental inventory data with alternative nutritional characterization approaches. Methodological choices concerning protein quality, nutrient bioavailability, capping, and aggregation can be evaluated systematically before nutritional results are integrated with environmental indicators. The framework supports comparison across methodological variants and sensitivity analysis.
 
 ---
 
 ## Scientific workflow
 
-The general workflow implemented in Version 1.1 can be represented as:
+The general calculation workflow implemented in Version 1.1 can be represented as:
 
-**Input data -> Nutritional characterization -> Protein-quality characterization -> Bioavailability adjustment -> Capping and aggregation -> Nutritional index -> Environmental integration -> Sensitivity analysis and reporting**
+**Input data → Nutritional characterization → Protein-quality characterization → Bioavailability adjustment → Capping and aggregation → Nutritional index → Environmental integration → Sensitivity analysis and reporting**
 
 This modular structure is intended to make methodological assumptions explicit and allow researchers to investigate their influence on nLCA results.
 
@@ -53,28 +53,32 @@ This modular structure is intended to make methodological assumptions explicit a
 
 ## Nutritional characterization
 
-The tool supports nutrient-density based nutritional characterization in which selected qualifying and limiting nutrients can be evaluated relative to appropriate reference values.
+The tool supports nutrient-density based nutritional characterization in which selected qualifying and limiting nutrients can be evaluated relative to researcher-defined reference values.
 
 Researchers can investigate alternative methodological assumptions rather than relying on a single fixed nutritional scoring approach.
 
-Methodological dimensions that can be evaluated include:
+Among the methodological dimensions that can be evaluated are:
 
 - nutrient selection;
 - nutrient reference values;
 - treatment of qualifying and limiting nutrients;
 - nutrient capping;
-- sum and mean aggregation;
-- weighted aggregation;
+- aggregation by sum or mean;
+- weighted aggregation approaches;
 - nutrient bioavailability adjustment; and
 - protein-quality characterization.
+
+This allows the consequences of alternative nutritional modelling choices to be examined explicitly.
 
 ---
 
 ## Protein-quality characterization
 
-Version 1.1 implements a **six-level protein-quality framework, Levels 0 to 5**.
+Protein quality can be incorporated at different levels of methodological detail.
 
-Depending on the selected level and the available data, protein assessment can incorporate information related to:
+Version 1.1 implements a **six-level protein-quality framework, Levels 0 to 5**, allowing researchers to investigate how increasing levels of protein-quality characterization influence nutritional and nutrition-adjusted environmental results.
+
+Depending on the selected level and available data, protein assessment can incorporate information related to:
 
 - protein quantity;
 - amino acid composition;
@@ -84,14 +88,14 @@ Depending on the selected level and the available data, protein assessment can i
 - amino acid scores; and
 - DIAAS-related protein-quality characterization.
 
-The multi-level structure allows researchers to investigate how increasing levels of protein-quality characterization influence nutritional and nutrition-adjusted environmental results.
+The multi-level structure also makes it possible to conduct cross-level sensitivity analyses.
 
 ### Example: comparison across protein-quality levels
 
 ![Cross-level comparison](figures/cross_level_comparison.png)
 
-**Figure 2. Cross-level comparison of nutritional indices across protein-quality Levels 0 to 5.**  
-The figure compares unadjusted and bioavailability-adjusted nutritional indices across the six protein-quality characterization levels for a selected calculation method. This output allows the effect of increasing protein-quality characterization detail to be evaluated while retaining the same assessment object and calculation context.
+**Figure 2. Example cross-level comparison generated by nLCA Tool.**  
+Illustrative comparison of the nutritional index across protein-quality Levels 0 to 5, showing both unadjusted and bioavailability-adjusted results for a selected calculation method.
 
 ---
 
@@ -101,40 +105,38 @@ Version 1.1 allows nutrient bioavailability to be incorporated into nutritional 
 
 Results can therefore be compared between:
 
-- **unadjusted nutritional characterization**; and
+- **unadjusted nutritional characterization**, and
 - **bioavailability-adjusted nutritional characterization**.
 
-This enables researchers to quantify how assumptions concerning nutrient availability influence the resulting nutritional index.
+This enables the researcher to quantify how assumptions concerning nutrient availability influence the resulting nutritional index.
 
-### Example: bioavailability across calculation variants
+### Example: bioavailability and calculation variants
 
 ![Nutritional index across calculation variants](figures/nutritional_index_variants.png)
 
-**Figure 3. Nutritional index across four calculation variants, comparing unadjusted and bioavailability-adjusted results.**  
-The figure compares Cap + Sum, No cap + Sum, Cap + Mean, and No cap + Mean. For each calculation variant, unadjusted and bioavailability-adjusted nutritional indices are presented. The output demonstrates how bioavailability assumptions interact with capping and aggregation choices.
+**Figure 3. Example comparison of nutritional-index calculation variants.**  
+The figure illustrates how the calculated nutritional index can change according to capping, aggregation, and bioavailability assumptions.
 
 ---
 
-## Capping, aggregation, and weighting
+## Capping and nutrient aggregation
 
-A central methodological question in nutrient-density assessment concerns how individual nutrient contributions are treated and subsequently combined.
+A major methodological question in nutrient-density assessment concerns how individual nutrient contributions are combined.
 
-Version 1.1 supports methodological variants involving:
+Version 1.1 supports alternative calculation variants involving combinations of:
 
 - capping versus no capping;
 - sum versus mean aggregation; and
 - weighted aggregation approaches.
 
-These variants can be evaluated using the same assessment object and input dataset.
+These alternatives can be evaluated under the same input dataset, allowing the influence of calculation structure to be examined directly.
 
-### Example: calculation-method sensitivity at Level 5
+### Example: calculation-method and bioavailability sensitivity
 
 ![Calculation method comparison](figures/calculation_method_comparison.png)
 
-**Figure 4. Nutritional index across calculation methods at protein-quality Level 5 using bioavailability-adjusted values.**  
-The figure compares eight methodological variants combining capping or no capping with sum, mean, and weighted aggregation approaches. Protein-quality level and bioavailability treatment are held constant. The dashed line at 100% provides a reference point for interpretation. The output therefore isolates the sensitivity of the nutritional index to the selected calculation method.
-
----
+**Figure 4. Nutritional index across calculation variants, comparing unadjusted and bioavailability-adjusted results.**  
+The figure compares eight methodological variants combining capping or no capping with sum, mean, and weighted aggregation approaches. For each calculation variant, unadjusted and bioavailability-adjusted nutritional indices are compared. This enables the combined influence of aggregation, capping, weighting, and nutrient bioavailability assumptions on the nutritional index to be evaluated systematically.
 
 ## Methodological sensitivity analysis
 
@@ -149,7 +151,7 @@ Comparisons can be conducted across dimensions such as:
 - nutrient bioavailability; and
 - combinations of methodological assumptions.
 
-Version 1.1 therefore supports comparison of alternative methodological treatments for the **same defined assessment object**.
+This makes it possible to distinguish changes caused by the characteristics of the assessed object from changes caused by the methodological choices used to characterize nutritional quality.
 
 ---
 
@@ -157,50 +159,52 @@ Version 1.1 therefore supports comparison of alternative methodological treatmen
 
 Environmental Life Cycle Assessment results can be integrated with the nutritional index calculated by the tool.
 
-This enables environmental impacts to be expressed relative to nutritional performance and allows researchers to investigate how nutritional characterization affects interpretation of environmental performance.
+This enables environmental impacts to be expressed relative to nutritional performance, allowing researchers to investigate how nutritional characterization affects interpretation of environmental performance.
 
-The tool preserves both the underlying environmental result and the nutritional characterization so that the effect of nutritional adjustment remains transparent.
+The tool is designed to preserve both the underlying environmental result and the nutritional characterization so that the effect of nutritional adjustment remains transparent.
 
 ### Example: nutrition-adjusted climate-change result
 
 ![Climate change across calculation methods](figures/climate_change_methods.png)
 
-**Figure 5. Climate-change impact per nutritional-index point across alternative nutritional calculation methods.**  
-The figure demonstrates how alternative nutritional calculation methods propagate into nutrition-adjusted environmental results. Because the underlying environmental impact for the assessment object is held constant, differences among the bars arise from differences in the calculated nutritional index.
+**Figure 5. Example environmental integration generated by nLCA Tool.**  
+Climate-change impact expressed per nutritional-index point across alternative nutritional calculation methods. Differences between the results illustrate how methodological choices in nutritional characterization can propagate into nutrition-adjusted environmental indicators.
 
 ---
 
 ## Comparison and visualization
 
-Version 1.1 provides graphical outputs to support interpretation of methodological sensitivity.
+Version 1.1 provides graphical outputs designed to support interpretation of methodological sensitivity.
 
-Implemented comparisons include:
+Current comparisons include, among others:
 
-- nutritional indices across calculation variants;
+- nutritional index across calculation variants;
 - unadjusted versus bioavailability-adjusted results;
 - comparison across protein-quality Levels 0 to 5;
-- comparison of capping, aggregation, and weighting approaches; and
+- comparison among alternative capping and aggregation approaches; and
 - environmental impacts expressed relative to alternative nutritional-index calculations.
 
-These outputs are designed to make the consequences of methodological choices visible and support transparent reporting of nLCA studies.
+The figures generated by the software are intended to make the consequences of methodological choices visible and support transparent reporting of nLCA studies.
 
 ---
 
 ## Current scope of Version 1.1
 
-Version 1.1 performs methodological assessment for an **individual assessment object at a time**.
+Version 1.1 performs an assessment for an **individual assessment object at a time**.
 
-The current release is primarily intended for detailed nutritional characterization and methodological sensitivity analysis of a defined assessment object rather than simultaneous comparative assessment of multiple independent ingredients, foods, dishes, meals, or diets.
+The current release is therefore primarily intended for detailed methodological characterization and sensitivity analysis of a defined assessment object rather than simultaneous comparative assessment of multiple independent products, ingredients, dishes, meals, or diets.
 
-The tool can compare alternative **protein-quality levels, bioavailability assumptions, capping approaches, aggregation approaches, weighting approaches, and resulting nutrition-adjusted environmental indicators** for the same assessment object.
+The tool can nevertheless compare alternative **methods, protein-quality levels, bioavailability assumptions, and nutritional calculation variants** for the same assessment object.
+
+This distinction is important when interpreting the comparison figures generated by Version 1.1.
 
 ---
 
 ## Planned development
 
-Future development is intended to extend the software toward a structured classification and comparison framework across multiple food-system assessment levels.
+Future development is intended to extend the software from individual assessment-object analysis toward structured assessment and comparison across multiple food-system levels.
 
-The planned framework includes:
+The planned framework includes classification and analysis of:
 
 1. **Ingredients**
 2. **Foods and food products**
@@ -208,21 +212,21 @@ The planned framework includes:
 4. **Meals**
 5. **Diets and dietary scenarios**
 
-A hierarchical classification framework for these assessment levels is planned for Version 2 and is **not part of the implemented functionality of Version 1.1**.
+The classification framework is under development for a future version and is **not part of the implemented functionality of Version 1.1**.
 
 ---
 
 ## Research applications
 
-Potential applications of nLCA Tool include:
+Potential research applications of nLCA Tool include:
 
 - methodological research in nutritional Life Cycle Assessment;
 - investigation of protein-quality treatment in nLCA;
 - evaluation of nutrient bioavailability assumptions;
 - sensitivity analysis of nutrient-density models;
-- investigation of capping, aggregation, and weighting approaches;
+- investigation of capping and aggregation methods;
 - assessment of nutrition-adjusted environmental indicators;
-- sustainable food and alternative-protein research; and
+- sustainable food and novel-protein research; and
 - transparent comparison of alternative nLCA methodological choices.
 
 The software is designed as a research environment rather than as a nutritional recommendation, dietary guidance, or consumer health assessment tool.
@@ -233,7 +237,7 @@ The software is designed as a research environment rather than as a nutritional 
 
 The detailed source code of nLCA Tool Version 1.1 is maintained in a **controlled-access private repository** and is not currently distributed publicly.
 
-This public repository provides scientific documentation, citation information, selected software-generated figures, version information, and information about the research software.
+This public repository provides scientific documentation, citation information, selected figures, version information, and information about the research software.
 
 Access to the research software or source code may be considered for research collaboration subject to the conditions established by the developers and affiliated institution.
 
@@ -245,42 +249,32 @@ If you use nLCA Tool in research, please cite the archived software record:
 
 > **Khoshnevisan, B. (2026). nLCA Tool (Version 1.1). Center for Life Cycle Engineering, University of Southern Denmark. Zenodo.**
 
-The DOI will be added following publication of the Version 1.1 Zenodo record.
+The DOI will be added here following publication of the Version 1.1 Zenodo record.
 
 Citation metadata are also provided in [`CITATION.cff`](CITATION.cff).
 
 ---
 
-## Development
-
-**SMART Research Team**  
-**Center for Life Cycle Engineering**  
-**University of Southern Denmark (SDU)**  
-Denmark
-
-Research team website: https://sdu-lce-smart.github.io/
-
----
-
-## Contact
+## Developer
 
 **Benyamin Khoshnevisan**  
-Associate Professor  
 Center for Life Cycle Engineering  
 University of Southern Denmark  
-Email: bekh@igt.sdu.dk
+Odense, Denmark
 
-ORCID: https://orcid.org/0000-0003-0236-5970
+ORCID: [0000-0003-0236-5970](https://orcid.org/0000-0003-0236-5970)
+
+Developed within the **SMART Research Team** at the Center for Life Cycle Engineering, University of Southern Denmark.
 
 ---
 
 ## Version
 
-Current documented research release:
+Current research release:
 
 **nLCA Tool Version 1.1**
 
-Future versions may extend the scientific framework, calculation options, classification system, comparative capabilities, and user interface.
+Version 1.1 represents the current documented research-software release. Future versions may modify or extend the scientific framework, calculation options, user interface, classification system, and comparative capabilities.
 
 ---
 
@@ -288,7 +282,7 @@ Future versions may extend the scientific framework, calculation options, classi
 
 The nLCA Tool source code is not currently released under an open-source software license.
 
-The existence of this public documentation repository does not imply public release of the source code and does not grant permission to copy, modify, redistribute, sublicense, or commercially exploit source code that has not been publicly released.
+The existence of this public documentation repository does not imply public release of the source code and does not grant permission to copy, modify, redistribute, sublicense, or commercially exploit the nLCA Tool source code.
 
 Copyright ownership and software reuse remain subject to applicable institutional intellectual-property policies of the University of Southern Denmark.
 
@@ -298,9 +292,20 @@ Copyright ownership and software reuse remain subject to applicable institutiona
 
 nLCA Tool is research software.
 
-The developers and affiliated institutions make no warranty regarding the completeness, accuracy, or suitability of results for a particular purpose. Users are responsible for evaluating the appropriateness of input data, reference values, methodological choices, assumptions, and resulting interpretations.
+The developers and affiliated institutions make no warranty regarding the completeness, accuracy, or suitability of results for a particular purpose. Users are responsible for evaluating the appropriateness of input data, methodological choices, assumptions, reference values, and resulting interpretations.
 
 Results generated using nLCA Tool should be interpreted in the context of the methodological assumptions and data used in each individual study.
 
 The software is intended for research purposes and does not provide medical, clinical, dietary, or nutritional advice.
+
+---
+
+## Contact
+
+For scientific enquiries, research collaboration, or information regarding access:
+
+**Benyamin Khoshnevisan**  
+Center for Life Cycle Engineering  
+University of Southern Denmark  
+Email: bekh@igt.sdu.dk
 
