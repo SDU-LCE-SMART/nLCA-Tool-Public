@@ -131,14 +131,12 @@ Version 1.1 supports alternative calculation variants involving combinations of:
 
 These alternatives can be evaluated under the same input dataset, allowing the influence of calculation structure to be examined directly.
 
-### Example: calculation-method sensitivity
+### Example: calculation-method and bioavailability sensitivity
 
 ![Calculation method comparison](figures/calculation_method_comparison.png)
 
-**Figure 4. Example sensitivity analysis across nutritional calculation methods.**  
-Alternative capping and aggregation assumptions can produce substantially different nutritional-index values. The tool enables these methodological effects to be evaluated systematically rather than embedding them implicitly in a single calculation pathway.
-
----
+**Figure 4. Nutritional index across calculation variants, comparing unadjusted and bioavailability-adjusted results.**  
+The figure compares eight methodological variants combining capping or no capping with sum, mean, and weighted aggregation approaches. For each calculation variant, unadjusted and bioavailability-adjusted nutritional indices are compared. This enables the combined influence of aggregation, capping, weighting, and nutrient bioavailability assumptions on the nutritional index to be evaluated systematically.
 
 ## Methodological sensitivity analysis
 
