@@ -330,3 +330,18 @@ The availability of the web application does
 not imply that its underlying source code
 is distributed under an open-source license.
 
+
+
+<!-- DOI-SECTION-START -->
+## DOI and Citation
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23193277.svg)](https://doi.org/10.5281/zenodo.23193277)
+
+**Version:** 1.1
+
+**Archive scope:** Public documentation archive
+
+**Zenodo DOI:** https://doi.org/10.5281/zenodo.23193277
+
+Please cite the archived documentation using the Zenodo DOI above. The public repository does not contain the proprietary application source code.
+<!-- DOI-SECTION-END -->
