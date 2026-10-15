@@ -309,3 +309,24 @@ Center for Life Cycle Engineering
 University of Southern Denmark  
 Email: bekh@igt.sdu.dk
 
+
+## Live Web Application
+
+The nLCA Tool is publicly accessible as a
+web-based research software application.
+
+**Access the application:**
+
+https://nlca-tool.onrender.com/
+
+The application supports research and analysis
+in nutritional life cycle assessment (nLCA).
+
+The public GitHub repository provides project
+documentation, citation metadata, and
+supporting scientific figures.
+
+The availability of the web application does
+not imply that its underlying source code
+is distributed under an open-source license.
+
